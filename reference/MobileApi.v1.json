@@ -108,11 +108,77 @@
                   }
                 }
               }
-            }
+            },
+            "headers": {}
           }
         },
         "operationId": "get-userrole-id",
-        "description": "/userrole/{id}"
+        "description": "/userrole/{id}",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ]
+      }
+    },
+    "/version": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-version",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ]
       }
     }
   }
