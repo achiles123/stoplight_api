@@ -876,7 +876,9 @@
       ],
       "get": {
         "summary": "Get",
-        "tags": [],
+        "tags": [
+          "Salary"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -890,7 +892,94 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "taxable_income": {
+                            "type": "string"
+                          },
+                          "holidays_used": {
+                            "type": "string"
+                          },
+                          "holiday_bonus_supply": {
+                            "type": "string"
+                          },
+                          "exchange_work_day": {
+                            "type": "string"
+                          },
+                          "mobile_bonus": {
+                            "type": "string"
+                          },
+                          "job_performance": {
+                            "type": "string"
+                          },
+                          "note": {
+                            "type": "string"
+                          },
+                          "input_advance_payment": {
+                            "type": "string"
+                          },
+                          "finish_salary": {
+                            "type": "string"
+                          },
+                          "accountant_confirm": {
+                            "type": "string"
+                          },
+                          "employee_confirm": {
+                            "type": "string"
+                          },
+                          "remain_salary": {
+                            "type": "string"
+                          },
+                          "tax": {
+                            "type": "string"
+                          },
+                          "advance_payment": {
+                            "type": "string"
+                          },
+                          "total_salary": {
+                            "type": "string"
+                          },
+                          "holiday_bonus": {
+                            "type": "string"
+                          },
+                          "work_finish_bonus": {
+                            "type": "string"
+                          },
+                          "maintenance_bonus": {
+                            "type": "string"
+                          },
+                          "eating_bonus": {
+                            "type": "string"
+                          },
+                          "fuel_bonus": {
+                            "type": "string"
+                          },
+                          "insurrance": {
+                            "type": "string"
+                          },
+                          "work_day_salary": {
+                            "type": "string"
+                          },
+                          "basic_salary": {
+                            "type": "string"
+                          },
+                          "standard_work_day": {
+                            "type": "string"
+                          },
+                          "real_work_day": {
+                            "type": "string"
+                          },
+                          "report_count": {
+                            "type": "string"
+                          },
+                          "year": {
+                            "type": "string"
+                          },
+                          "month": {
+                            "type": "string"
+                          },
+                          "user_id": {
                             "type": "string"
                           }
                         }
@@ -912,6 +1001,74 @@
             "name": "Authorization"
           }
         ]
+      }
+    },
+    "/salary/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update",
+        "tags": [],
+        "responses": {},
+        "operationId": "put-salary-id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id":{"type": "string"},
+                  "user_id":{"type": "string"},
+                  "month":{"type": "string"},
+                  "year":{"type": "string"},
+                  "report_count":{"type": "string"},
+                  "real_work_day":{"type": "string"},
+                  "standard_work_day":{"type": "string"},
+                  "basic_salary":{"type": "string"},
+                  "work_day_salary":{"type": "string"},
+                  "insurrance":{"type": "string"},
+                  "fuel_bonus":{"type": "string"},
+                  "eating_bonus":{"type": "string"},
+                  "maintenance_bonus":{"type": "string"},
+                  "work_finish_bonus":{"type": "string"},
+                  "holiday_bonus":{"type": "string"},
+                  "total_salary":{"type": "string"},
+                  "advance_payment":{"type": "string"},
+                  "tax":{"type": "string"},
+                  "remain_salary":{"type": "string"},
+                  "employee_confirm":{"type": "string"},
+                  "accountant_confirm":{"type": "string"},
+                  "finish_salary":{"type": "string"},
+                  "input_advance_payment":{"type": "string"},
+                  "note":{"type": "string"},
+                  "job_performance":{"type": "string"},
+                  "mobile_bonus":{"type": "string"},
+                  "exchange_work_day":{"type": "string"},
+                  "holiday_bonus_supply":{"type": "string"},
+                  "holidays_used":{"type": "string"},
+                  "taxable_income":{"type": "string"}
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
