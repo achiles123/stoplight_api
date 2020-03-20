@@ -113,7 +113,7 @@
           }
         },
         "operationId": "get-userrole-id",
-        "description": "/userrole/{id}",
+        "description": "Get",
         "parameters": [
           {
             "schema": {
@@ -127,7 +127,7 @@
     },
     "/version": {
       "get": {
-        "summary": "Get",
+        "summary": "/version",
         "tags": [
           "Version"
         ],
@@ -177,7 +177,8 @@
             "in": "header",
             "name": "Authorization"
           }
-        ]
+        ],
+        "description": "Get"
       }
     },
     "/timekeeping/{id}": {
@@ -192,7 +193,7 @@
         }
       ],
       "put": {
-        "summary": "Update",
+        "summary": "/timekeeping/{id}",
         "tags": [
           "Timekeeping"
         ],
@@ -283,12 +284,13 @@
               }
             }
           }
-        }
+        },
+        "description": "Update"
       }
     },
     "/timekeeping": {
       "post": {
-        "summary": "Create",
+        "summary": "/timekeeping",
         "tags": [
           "Timekeeping"
         ],
@@ -380,7 +382,7 @@
             }
           }
         },
-        "description": ""
+        "description": "Create"
       }
     },
     "/timekeeping/user_id/{id}/month/{month}/year/{year}": {
@@ -411,7 +413,7 @@
         }
       ],
       "get": {
-        "summary": "Get",
+        "summary": "/timekeeping/user_id/{id}/month/{month}/year/{year}",
         "tags": [
           "Timekeeping"
         ],
@@ -543,12 +545,13 @@
             "in": "header",
             "name": "Authorization"
           }
-        ]
+        ],
+        "description": "Get"
       }
     },
     "/holiday": {
       "get": {
-        "summary": "Get",
+        "summary": "/holiday",
         "tags": [
           "Holiday"
         ],
@@ -595,12 +598,13 @@
             "in": "header",
             "name": "Authorization"
           }
-        ]
+        ],
+        "description": "Get"
       }
     },
     "/standard": {
       "get": {
-        "summary": "Get",
+        "summary": "/standard",
         "tags": [
           "Standard"
         ],
@@ -662,12 +666,13 @@
             "in": "header",
             "name": "Authorization"
           }
-        ]
+        ],
+        "description": "Get"
       }
     },
     "/customer": {
       "get": {
-        "summary": "Get",
+        "summary": "/customer",
         "tags": [
           "Customer"
         ],
@@ -732,7 +737,8 @@
             "in": "header",
             "name": "Authorizarion"
           }
-        ]
+        ],
+        "description": "Get"
       }
     },
     "/timekeeping/{id}/delete": {
@@ -747,7 +753,7 @@
         }
       ],
       "delete": {
-        "summary": "Delete",
+        "summary": "/timekeeping/{id}/delete",
         "tags": [
           "Timekeeping"
         ],
@@ -787,7 +793,8 @@
             "name": "Authorization"
           }
         ],
-        "requestBody": {}
+        "requestBody": {},
+        "description": "Delete"
       }
     },
     "/customertimekeeping/{id}": {
@@ -802,7 +809,7 @@
         }
       ],
       "post": {
-        "summary": "Create",
+        "summary": "/customertimekeeping/{id}",
         "tags": [
           "CustomerTimekeeping"
         ],
@@ -860,7 +867,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Create"
       }
     },
     "/salary/{user_id}": {
@@ -875,7 +883,7 @@
         }
       ],
       "get": {
-        "summary": "Get",
+        "summary": "/salary/{user_id}",
         "tags": [
           "Salary"
         ],
@@ -1000,7 +1008,8 @@
             "in": "header",
             "name": "Authorization"
           }
-        ]
+        ],
+        "description": "Get"
       }
     },
     "/salary/{id}": {
@@ -1015,7 +1024,7 @@
         }
       ],
       "put": {
-        "summary": "Update",
+        "summary": "/salary/{id}",
         "tags": [],
         "responses": {},
         "operationId": "put-salary-id",
@@ -1034,41 +1043,102 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "id":{"type": "string"},
-                  "user_id":{"type": "string"},
-                  "month":{"type": "string"},
-                  "year":{"type": "string"},
-                  "report_count":{"type": "string"},
-                  "real_work_day":{"type": "string"},
-                  "standard_work_day":{"type": "string"},
-                  "basic_salary":{"type": "string"},
-                  "work_day_salary":{"type": "string"},
-                  "insurrance":{"type": "string"},
-                  "fuel_bonus":{"type": "string"},
-                  "eating_bonus":{"type": "string"},
-                  "maintenance_bonus":{"type": "string"},
-                  "work_finish_bonus":{"type": "string"},
-                  "holiday_bonus":{"type": "string"},
-                  "total_salary":{"type": "string"},
-                  "advance_payment":{"type": "string"},
-                  "tax":{"type": "string"},
-                  "remain_salary":{"type": "string"},
-                  "employee_confirm":{"type": "string"},
-                  "accountant_confirm":{"type": "string"},
-                  "finish_salary":{"type": "string"},
-                  "input_advance_payment":{"type": "string"},
-                  "note":{"type": "string"},
-                  "job_performance":{"type": "string"},
-                  "mobile_bonus":{"type": "string"},
-                  "exchange_work_day":{"type": "string"},
-                  "holiday_bonus_supply":{"type": "string"},
-                  "holidays_used":{"type": "string"},
-                  "taxable_income":{"type": "string"}
+                  "id": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "month": {
+                    "type": "string"
+                  },
+                  "year": {
+                    "type": "string"
+                  },
+                  "report_count": {
+                    "type": "string"
+                  },
+                  "real_work_day": {
+                    "type": "string"
+                  },
+                  "standard_work_day": {
+                    "type": "string"
+                  },
+                  "basic_salary": {
+                    "type": "string"
+                  },
+                  "work_day_salary": {
+                    "type": "string"
+                  },
+                  "insurrance": {
+                    "type": "string"
+                  },
+                  "fuel_bonus": {
+                    "type": "string"
+                  },
+                  "eating_bonus": {
+                    "type": "string"
+                  },
+                  "maintenance_bonus": {
+                    "type": "string"
+                  },
+                  "work_finish_bonus": {
+                    "type": "string"
+                  },
+                  "holiday_bonus": {
+                    "type": "string"
+                  },
+                  "total_salary": {
+                    "type": "string"
+                  },
+                  "advance_payment": {
+                    "type": "string"
+                  },
+                  "tax": {
+                    "type": "string"
+                  },
+                  "remain_salary": {
+                    "type": "string"
+                  },
+                  "employee_confirm": {
+                    "type": "string"
+                  },
+                  "accountant_confirm": {
+                    "type": "string"
+                  },
+                  "finish_salary": {
+                    "type": "string"
+                  },
+                  "input_advance_payment": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "job_performance": {
+                    "type": "string"
+                  },
+                  "mobile_bonus": {
+                    "type": "string"
+                  },
+                  "exchange_work_day": {
+                    "type": "string"
+                  },
+                  "holiday_bonus_supply": {
+                    "type": "string"
+                  },
+                  "holidays_used": {
+                    "type": "string"
+                  },
+                  "taxable_income": {
+                    "type": "string"
+                  }
                 }
               }
             }
           }
-        }
+        },
+        "description": "Update"
       }
     }
   }
