@@ -127,30 +127,23 @@
     },
     "/version": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "Get",
         "tags": [
           "Version"
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {},
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status_code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
                     "data": {
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "integer"
+                          "type": "string"
                         },
                         "version": {
                           "type": "string"
@@ -162,6 +155,12 @@
                           "type": "string"
                         }
                       }
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
                     }
                   }
                 }
@@ -170,6 +169,740 @@
           }
         },
         "operationId": "get-version",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ]
+      }
+    },
+    "/timekeeping/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update",
+        "tags": [
+          "Timekeeping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-timekeeping-id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "work_time": {
+                    "type": "number"
+                  },
+                  "vehicle": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "todo": {
+                    "type": "string"
+                  },
+                  "start_time": {
+                    "type": "string"
+                  },
+                  "report_time": {
+                    "type": "string"
+                  },
+                  "maintenance_bonus": {
+                    "type": "integer"
+                  },
+                  "fuel_bonus": {
+                    "type": "string"
+                  },
+                  "end_time": {
+                    "type": "string"
+                  },
+                  "eating_bonus": {
+                    "type": "integer"
+                  },
+                  "distance": {
+                    "type": "integer"
+                  },
+                  "comfirm": {
+                    "type": "integer"
+                  },
+                  "absence": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/timekeeping": {
+      "post": {
+        "summary": "Create",
+        "tags": [
+          "Timekeeping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-timekeeping",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "absence": {
+                    "type": "integer"
+                  },
+                  "comfirm": {
+                    "type": "integer"
+                  },
+                  "distance": {
+                    "type": "integer"
+                  },
+                  "eating_bonus": {
+                    "type": "integer"
+                  },
+                  "end_time": {
+                    "type": "string"
+                  },
+                  "fuel_bonus": {
+                    "type": "string"
+                  },
+                  "maintenance_bonus": {
+                    "type": "integer"
+                  },
+                  "report_time": {
+                    "type": "string"
+                  },
+                  "start_time": {
+                    "type": "string"
+                  },
+                  "todo": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "vehicle": {
+                    "type": "string"
+                  },
+                  "work_time": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": ""
+      }
+    },
+    "/timekeeping/user_id/{id}/month/{month}/year/{year}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "month",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "year",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get",
+        "tags": [
+          "Timekeeping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "type": "string"
+                          },
+                          "user_name": {
+                            "type": "string"
+                          },
+                          "todo": {
+                            "type": "string"
+                          },
+                          "start_time": {
+                            "type": "string"
+                          },
+                          "end_time": {
+                            "type": "string"
+                          },
+                          "vehicle": {
+                            "type": "string"
+                          },
+                          "work_time": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "comfirm": {
+                            "type": "string"
+                          },
+                          "distance": {
+                            "type": "string"
+                          },
+                          "fueil_bonus": {
+                            "type": "string"
+                          },
+                          "eating_bonus": {
+                            "type": "string"
+                          },
+                          "maintenance_bonus": {
+                            "type": "string"
+                          },
+                          "absence": {
+                            "type": "string"
+                          },
+                          "report_time": {
+                            "type": "string"
+                          },
+                          "customers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "customer": {
+                                  "type": "string"
+                                },
+                                "distance": {
+                                  "type": "string"
+                                },
+                                "fuel_bonus": {
+                                  "type": "string"
+                                },
+                                "eating_bonus": {
+                                  "type": "string"
+                                },
+                                "customer_type": {
+                                  "type": "string"
+                                },
+                                "maintenance_bonus": {
+                                  "type": "string"
+                                },
+                                "pivot": {
+                                  "type": "object",
+                                  "properties": {
+                                    "timekeeping_id": {
+                                      "type": "string"
+                                    },
+                                    "customer_id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-timekeeping-user_id-id-month-month-year-year",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ]
+      }
+    },
+    "/holiday": {
+      "get": {
+        "summary": "Get",
+        "tags": [
+          "Holiday"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "holiday": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status_code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-holiday",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ]
+      }
+    },
+    "/standard": {
+      "get": {
+        "summary": "Get",
+        "tags": [
+          "Standard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "month": {
+                            "type": "string"
+                          },
+                          "standard_day": {
+                            "type": "string"
+                          },
+                          "year": {
+                            "type": "string"
+                          },
+                          "standard_fuel_rate": {
+                            "type": "string"
+                          },
+                          "starndard_eating_rate": {
+                            "type": "string"
+                          },
+                          "holidays_reward": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-standard",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ]
+      }
+    },
+    "/customer": {
+      "get": {
+        "summary": "Get",
+        "tags": [
+          "Customer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "customer": {
+                            "type": "string"
+                          },
+                          "distance": {
+                            "type": "integer"
+                          },
+                          "fuel_bonus": {
+                            "type": "integer"
+                          },
+                          "eating_bonus": {
+                            "type": "integer"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "customer_type": {
+                            "type": "string"
+                          },
+                          "maintenance_bonus": {
+                            "type": "integer"
+                          },
+                          "customer_code": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-customer",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorizarion"
+          }
+        ]
+      }
+    },
+    "/timekeeping/{id}/delete": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete",
+        "tags": [
+          "Timekeeping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-timekeeping-id-delete",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ],
+        "requestBody": {}
+      }
+    },
+    "/customertimekeeping/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Create",
+        "tags": [
+          "CustomerTimekeeping"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-customertimekeeping-id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "customer_id": {
+                          "type": "string"
+                        },
+                        "timekeeping_id": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/salary/{user_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "user_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-salary-id",
         "parameters": [
           {
             "schema": {
